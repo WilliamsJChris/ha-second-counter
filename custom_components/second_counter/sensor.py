@@ -39,11 +39,32 @@ async def async_setup_entry(
     async_add_entities([sensor])
 
 
+
+def _format_duration(total_seconds: int) -> str:
+    """Format an integer number of seconds as a human-readable duration.
+
+    Returns ``"Y s"`` for values ≤ 59, otherwise ``"X m Y s"``.
+    Negative values are prefixed with ``"-"``.
+    """
+    sign = ""
+    value = total_seconds
+    if value < 0:
+        sign = "-"
+        value = abs(value)
+
+    if value <= 59:
+        return f"{sign}{value} s"
+
+    minutes = value // 60
+    seconds = value % 60
+    return f"{sign}{minutes} m {seconds} s"
+
+
 class SecondCounterSensor(SensorEntity):
+
     """A sensor that counts up by 1 every second with drift compensation."""
 
     _attr_icon = "mdi:timer-stop"  # fallback; icon.svg / icons.json takes precedence
-    _attr_native_unit_of_measurement = "s"
 
     def __init__(
         self,
@@ -67,14 +88,22 @@ class SecondCounterSensor(SensorEntity):
     # ------------------------------------------------------------------
 
     @property
-    def native_value(self) -> int:
-        """Return the current counter value."""
-        return self._counter
+    def native_value(self) -> str:
+        """Return the counter as a human-readable duration string.
+
+        Examples:
+            42       →  "42 s"
+            60       →  "1 m 0 s"
+            90       →  "1 m 30 s"
+            -10      →  "-10 s"
+        """
+        return _format_duration(self._counter)
 
     @property
     def extra_state_attributes(self) -> dict[str, Any]:
         """Return extra attributes exposed to HA."""
         return {
+            "count": self._counter,          # raw integer for automations / templates
             "is_running": self._is_running,
             "last_ticked_at": self._last_ticked_at,
         }

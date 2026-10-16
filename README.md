@@ -19,7 +19,7 @@ It bypasses standard template refresh delays, runs reliably without temporal dri
 
 1. Open HACS in your Home Assistant instance.
 2. Go to **Integrations** → click the three-dot menu → **Custom repositories**.
-3. Add `https://github.com/username/ha-second-counter` with category **Integration**.
+3. Add `https://github.com/WilliamsJChris/ha-second-counter` with category **Integration**.
 4. Search for **Second Counter** and install.
 5. Restart Home Assistant.
 6. Go to **Settings › Devices & Services › Add Integration** and search for **Second Counter**.
@@ -72,6 +72,7 @@ Without this exclusion, your Home Assistant database will grow extremely quickly
 
 | Attribute | Type | Description |
 |---|---|---|
+| `count` | `integer` | Raw total seconds (useful for automations & numeric triggers) |
 | `is_running` | `boolean` | Whether the counter is currently ticking |
 | `last_ticked_at` | `string` (ISO 8601 UTC) | Timestamp of the most recent tick |
 
