@@ -1,0 +1,73 @@
+start:
+  name: Start Counter
+  description: >
+    Resume (or begin) counting. Targets all Second Counter sensors unless
+    a specific entity is selected.
+  fields:
+    entity_id:
+      name: Counter Entity
+      description: >
+        The Second Counter sensor to start. Leave blank to start ALL counters.
+      required: false
+      selector:
+        entity:
+          integration: second_counter
+          domain: sensor
+
+pause:
+  name: Pause Counter
+  description: >
+    Pause counting without resetting the value. Targets all Second Counter
+    sensors unless a specific entity is selected.
+  fields:
+    entity_id:
+      name: Counter Entity
+      description: >
+        The Second Counter sensor to pause. Leave blank to pause ALL counters.
+      required: false
+      selector:
+        entity:
+          integration: second_counter
+          domain: sensor
+
+reset:
+  name: Reset Counter
+  description: >
+    Reset the counter to its configured initial value. Targets all Second
+    Counter sensors unless a specific entity is selected.
+  fields:
+    entity_id:
+      name: Counter Entity
+      description: >
+        The Second Counter sensor to reset. Leave blank to reset ALL counters.
+      required: false
+      selector:
+        entity:
+          integration: second_counter
+          domain: sensor
+
+set_value:
+  name: Set Counter Value
+  description: >
+    Override the current count with a specific integer. Targets all Second
+    Counter sensors unless a specific entity is selected.
+  fields:
+    entity_id:
+      name: Counter Entity
+      description: >
+        The Second Counter sensor to update. Leave blank to update ALL counters.
+      required: false
+      selector:
+        entity:
+          integration: second_counter
+          domain: sensor
+    value:
+      name: Value
+      description: The integer value to set the counter to.
+      required: true
+      example: 100
+      selector:
+        number:
+          min: -2147483648
+          max: 2147483647
+          mode: box

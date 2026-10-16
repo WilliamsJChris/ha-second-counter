@@ -1,0 +1,16 @@
+{
+  "integration": "icon",
+  "entity": {
+    "sensor": {
+      "second_counter": {
+        "default": "icon"
+      }
+    }
+  },
+  "services": {
+    "start": "icon",
+    "pause": "icon",
+    "reset": "icon",
+    "set_value": "icon"
+  }
+}

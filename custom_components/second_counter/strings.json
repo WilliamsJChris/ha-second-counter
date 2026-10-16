@@ -1,0 +1,80 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Second Counter",
+        "description": "Configure a new Second Counter sensor.",
+        "data": {
+          "name": "Name",
+          "initial_value": "Initial Value",
+          "start_immediately": "Start counting immediately"
+        }
+      }
+    },
+    "error": {
+      "unknown": "Unexpected error. Please try again."
+    },
+    "abort": {
+      "already_configured": "This counter is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Second Counter Options",
+        "description": "Update settings for this Second Counter sensor.",
+        "data": {
+          "name": "Name",
+          "initial_value": "Initial Value",
+          "start_immediately": "Start counting immediately"
+        }
+      }
+    }
+  },
+  "services": {
+    "start": {
+      "name": "Start Counter",
+      "description": "Resume or begin counting.",
+      "fields": {
+        "entity_id": {
+          "name": "Counter Entity",
+          "description": "The Second Counter sensor to start. Leave blank to start all counters."
+        }
+      }
+    },
+    "pause": {
+      "name": "Pause Counter",
+      "description": "Pause without resetting the value.",
+      "fields": {
+        "entity_id": {
+          "name": "Counter Entity",
+          "description": "The Second Counter sensor to pause. Leave blank to pause all counters."
+        }
+      }
+    },
+    "reset": {
+      "name": "Reset Counter",
+      "description": "Reset to the initial configured value.",
+      "fields": {
+        "entity_id": {
+          "name": "Counter Entity",
+          "description": "The Second Counter sensor to reset. Leave blank to reset all counters."
+        }
+      }
+    },
+    "set_value": {
+      "name": "Set Counter Value",
+      "description": "Override the counter with a specific integer.",
+      "fields": {
+        "entity_id": {
+          "name": "Counter Entity",
+          "description": "The Second Counter sensor to update. Leave blank to update all counters."
+        },
+        "value": {
+          "name": "Value",
+          "description": "The integer to set the counter to."
+        }
+      }
+    }
+  }
+}

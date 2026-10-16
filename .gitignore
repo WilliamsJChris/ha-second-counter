@@ -216,5 +216,15 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Streamlit
 .streamlit/secrets.toml
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Home Assistant development
+config/
+*.db
+*.db-shm
+*.db-wal
