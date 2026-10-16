@@ -1,16 +1,23 @@
 {
-  "integration": "icon",
   "entity": {
     "sensor": {
       "second_counter": {
-        "default": "icon"
+        "default": "mdi:timer-outline"
       }
     }
   },
   "services": {
-    "start": "icon",
-    "pause": "icon",
-    "reset": "icon",
-    "set_value": "icon"
+    "start": {
+      "service": "mdi:play"
+    },
+    "pause": {
+      "service": "mdi:pause"
+    },
+    "reset": {
+      "service": "mdi:restart"
+    },
+    "set_value": {
+      "service": "mdi:counter"
+    }
   }
 }

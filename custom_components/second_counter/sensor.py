@@ -64,7 +64,8 @@ class SecondCounterSensor(SensorEntity):
 
     """A sensor that counts up by 1 every second with drift compensation."""
 
-    _attr_icon = "mdi:timer-stop"  # fallback; icon.svg / icons.json takes precedence
+    _attr_translation_key = "second_counter"
+    _attr_icon = "mdi:timer-outline"
 
     def __init__(
         self,
